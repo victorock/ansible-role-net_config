@@ -1,0 +1,9 @@
+---
+- name: "Ensure vrf configuration is {{ vrf_state }}"
+  net_vrf:
+    aggregate: "{{ vrf_aggregate }}"
+    state: "{{ vrf_state }}"
+    purge: "{{ vrf_purge }}"
+  register: r_vrf
+  tags:
+    - vrf

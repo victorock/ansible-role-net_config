@@ -1,0 +1,10 @@
+- name: "Ping destination using vrf with count and source"
+  net_ping:
+    dest: "{{ ping_dest }}"
+    source: "{{ ping_source }}"
+    vrf: "{{ ping_vrf }}"
+    count: "{{ ping_count }}"
+  register: r_ping
+  when: ping_count|int > 0
+  tags:
+    - ping

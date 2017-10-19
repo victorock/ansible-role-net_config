@@ -1,0 +1,9 @@
+---
+- name: "Ensure vlans configuration is {{ vlan_state }}"
+  net_vlan:
+    aggregate: "{{ vlan_aggregate }}"
+    state: "{{ vlan_state }}"
+    purge: "{{ vlan_purge }}"
+  register: r_vlan
+  tags:
+    - vlan

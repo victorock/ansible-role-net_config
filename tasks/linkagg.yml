@@ -1,0 +1,9 @@
+---
+- name: "Ensure interface LAGG configuration as {{ linkagg_state }}"
+  net_linkagg:
+    aggregate: "{{ linkagg_aggregate }}"
+    state: "{{ linkagg_state }}"
+    purge: "{{ linkagg_purge }}"
+  register: r_linkagg
+  tags:
+    - linkagg

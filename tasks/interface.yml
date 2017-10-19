@@ -1,0 +1,9 @@
+---
+- name: "Ensure interfaces configuration is {{ interface_state }}"
+  net_interface:
+    aggregate: "{{ interface_aggregate }}"
+    state: "{{ interface_state }}"
+    purge: "{{ interface_purge }}"
+  register: r_interface
+  tags:
+    - interface

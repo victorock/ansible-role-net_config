@@ -1,0 +1,11 @@
+---
+- name: "Ensure system-wide configuration is {{ system_state }}"
+  net_system:
+    domain_name: "{{ system_domain_name }}"
+    domain_search: "{{ system_domain_search }}"
+    hostname: "{{ system_hostname }}"
+    name_servers: "{{ system_name_servers }}"
+    state: "{{ system_state }}"
+  record: r_system
+  tags:
+    - system

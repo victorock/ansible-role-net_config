@@ -1,0 +1,9 @@
+---
+- name: "Ensure static routes are {{ static_route_state }}"
+  net_static_route:
+    aggregate: "{{ static_route_aggregate }}"
+    purge: "{{ static_route_purge }}"
+    state: "{{ static_route_state }}"
+  register: r_static_route
+  tags:
+    - static_route

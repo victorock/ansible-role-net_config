@@ -1,0 +1,11 @@
+# Ansible
+*.retry
+
+# Vagrant
+.vagrant
+
+# Logs
+*.log
+
+# Mac
+.DS_Store

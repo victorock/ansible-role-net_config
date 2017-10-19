@@ -1,0 +1,127 @@
+---
+## user
+user_state: absent
+user_aggregate:
+  - name: ansible
+    privilege: 15
+    configured_password: ansible
+    sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  - name: netconf
+    privilege: 15
+    configured_password: ansible
+    sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+## system
+system_state: absent
+system_hostname: switchname
+system_domain_name: acme.com
+system_domain_search:
+  - ansible.com
+  - redhat.com
+system_name_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+
+## ping
+ping_count: 0
+ping_dest: 127.0.0.1
+ping_source: 127.0.0.1
+ping_vrf: management
+
+## logging
+logging_aggregate:
+  - dest: host
+    name: 1.1.1.1
+    facility: kernel
+    level: critical
+  - dest: host
+    name: 1.1.1.2
+    facility: kernel
+    level: warning
+logging_purge: false
+logging_state: absent
+
+## banner
+banner_state: absent
+banner: motd
+banner_text: "This system is managed through automation"
+
+## static_route
+static_route_state: absent
+static_route_purge: no
+static_route_aggregate:
+  - prefix: 2.2.2.2
+    mask: 255.255.255.0
+    next_hop: 1.1.1.1
+    admin_distance: 1
+
+## l2_interface
+l2_interface_state: absent
+l2_interface_aggregate:
+  - name: ethernet99/0
+    mode: access
+    access_vlan: 99
+  - name: ethernet99/0
+    mode: trunk
+    native_vlan: 99
+    trunk_vlans:
+      - 90
+      - 91
+      - 92
+    trunk_allowed_vlans:
+      - 90
+      - 91
+      - 92
+
+## vlan
+vlan_state: absent
+vlan_purge: no
+vlan_aggregate:
+  - name: ANSIBLEVLAN10
+    state: absent
+    vlan_id: 10
+    interfaces:
+      - ethernet1/0
+
+## l3_interface
+l3_interface_state: absent
+l3_interface_purge: false
+l3_interface_aggregate:
+  - name: ethernet99/0
+    ipv4: 127.0.0.1/32
+
+## vrf
+vrf_state: absent
+vrf_purge: no
+vrf_aggregate:
+  - name: internet
+    rd: "1:204"
+    interfaces:
+      - ethernet1/0
+
+## interface
+interface_state: absent
+interface_purge: no
+interface_aggregate:
+  - name: ethernet99/0
+    description: interface description
+    enabled: yes
+    mtu: 2000
+    speed: 10g
+
+## linkagg
+linkagg_state: absent
+linkagg_purge: no
+linkagg_aggregate:
+  - name: group0
+    members:
+      - ethernet99/0
+      - ethernet99/1
+    mode: active
+    min_links: 1
+
+## lldp_interface
+lldp_interface_state: absent
+lldp_interface_purge: no
+lldp_interface_aggregate:
+  - { name: ethernet99/0 }

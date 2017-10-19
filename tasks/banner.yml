@@ -1,0 +1,9 @@
+---
+- name: "Ensure banner configuration is {{ banner_state }}"
+  net_banner:
+    banner: "{{ banner }}"
+    text: "{{ banner_text }}"
+    state: "{{ banner_state }}"
+  register: r_banner
+  tags:
+    - banner
