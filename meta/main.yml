@@ -5,16 +5,16 @@ galaxy_info:
   license: license (MIT, BSD)
   min_ansible_version: 2.4
   platforms:
-   - name: Fedora
+   - name: junos
      versions:
      - all
-   - name: EL
+   - name: nxos
      versions:
      - all
-   - name: Debian
+   - name: eos
      versions:
      - all
-   - name: Ubuntu
+   - name: cumulus
      versions:
      - all
   galaxy_tags:
