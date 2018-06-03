@@ -189,6 +189,7 @@ No dependencies from other roles.
 Example Playbook
 ----------------
 
+```YAML
   - name: "Baseline Configuration"
     hosts: network
     connection: local
@@ -229,6 +230,8 @@ Example Playbook
         include_role:
           name: victorock.network
           tasks_from: l3_interface
+```
+
 License
 -------
 
