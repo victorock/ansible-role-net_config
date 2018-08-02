@@ -1,0 +1,4 @@
+---
+- name: "autorun"
+  include_tasks: run.yml
+  when: autorun|default(false)

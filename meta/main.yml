@@ -1,8 +1,9 @@
 galaxy_info:
-  author: Victor da Costa (victorock)
-  description: Agnostic Ansible Network Modules
-  company: Red Hat
-  license: license (MIT, BSD)
+  role_name: network
+  author: "Victor da Costa (victorock)"
+  description: "Agnostic Ansible Network Modules"
+  company: "Red Hat"
+  license: "GPLv3"
   min_ansible_version: 2.4
   platforms:
    - name: junos
@@ -14,8 +15,10 @@ galaxy_info:
    - name: eos
      versions:
      - all
-   - name: cumulus
+   - name: ios
      versions:
      - all
   galaxy_tags:
     - network
+    - configuration
+    - agnostic

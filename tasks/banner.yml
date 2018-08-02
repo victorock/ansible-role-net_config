@@ -1,9 +1,10 @@
 ---
-- name: "Ensure banner configuration is {{ banner_state }}"
+- name: "Ensure net_banner"
   net_banner:
-    banner: "{{ banner }}"
-    text: "{{ banner_text }}"
-    state: "{{ banner_state }}"
-  register: r_banner
+    banner: "{{ net_banner.banner }}"
+    text: "{{ net_banner.text | default(omit) }}"
+    state: "{{ net_banner.state | default(omit) }}"
+  when: net_banner.banner is defined
   tags:
     - banner
+    - net_banner

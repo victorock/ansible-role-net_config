@@ -1,9 +1,10 @@
 ---
-- name: "Ensure interface L3 configuration is {{ l3_interface_state }}"
+- name: "Ensure net_l3_interface"
   net_l3_interface:
-    aggregate: "{{ l3_interface_aggregate }}"
-    state: "{{ l3_interface_state }}"
-    purge: "{{ l3_interface_purge }}"
-  register: r_l3_interface
+    aggregate: "{{ net_l3_interface.aggregate }}"
+    state: "{{ net_l3_interface.state | default(omit) }}"
+    purge: "{{ net_l3_interface.purge | default(omit) }}"
+  when: (net_l3_interface.aggregate|default([]))|length > 0
   tags:
     - l3_interface
+    - net_l3_interface

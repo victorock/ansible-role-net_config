@@ -1,10 +1,10 @@
-- name: "Ping destination using vrf with count and source"
+- name: "Ensure net_ping"
   net_ping:
-    dest: "{{ ping_dest }}"
-    source: "{{ ping_source | default(omit) }}"
-    vrf: "{{ ping_vrf | default(omit) }}"
-    count: "{{ ping_count | default(omit) }}"
-  register: r_ping
-  when: ping_count|int > 0
+    dest: "{{ net_ping.dest }}"
+    source: "{{ net_ping.source | default(omit) }}"
+    vrf: "{{ net_ping.vrf | default(omit) }}"
+    count: "{{ net_ping.count | default(omit) }}"
+  when: net_ping.dest is defined
   tags:
     - ping
+    - net_ping

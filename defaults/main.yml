@@ -1,28 +1,15 @@
 ---
-## user
-user_state: present
-user_aggregate:
-  - name: ansible
-    privilege: 15
-    configured_password: ansible
-    sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-  - name: netconf
-    privilege: 15
-    configured_password: ansible
-    sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-
-## system
-system_state: present
-system_hostname: switchname
-system_domain_name: acme.com
-system_domain_search:
-  - ansible.com
-  - acme.com
-system_name_servers:
-  - 8.8.8.8
-  - 8.8.4.4
-
-## banner
-banner_state: present
-banner: motd
-banner_text: "Automated by Ansible"
+net_user: {}
+net_banner: {}
+net_interface: {}
+net_l2_interface: {}
+net_l3_interface: {}
+net_linkagg: {}
+net_lldp_interface: {}
+net_logging: {}
+net_ping: {}
+net_static_route: {}
+net_system: {}
+net_static_user: {}
+net_vlan: {}
+net_vrf: {}
