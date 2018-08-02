@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_logging"
+  net_logging:
+    aggregate: "{{ net_logging.aggregate }}"
+    purge: "{{ net_logging.purge | default(omit) }}"
+    state: "{{ net_logging.state | default(omit) }}"
+  when: (net_logging.aggregate|default([]))|length > 0
+  tags:
+    - net_logging
+    - logging

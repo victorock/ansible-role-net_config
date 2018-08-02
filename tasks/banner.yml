@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_banner"
+  net_banner:
+    banner: "{{ net_banner.banner }}"
+    text: "{{ net_banner.text | default(omit) }}"
+    state: "{{ net_banner.state | default(omit) }}"
+  when: net_banner.banner is defined
+  tags:
+    - banner
+    - net_banner

@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_linkagg"
+  net_linkagg:
+    aggregate: "{{ net_linkagg.aggregate }}"
+    state: "{{ net_linkagg.state | default(omit) }}"
+    purge: "{{ net_linkagg.purge | default(omit) }}"
+  when: (net_linkagg.aggregate|default([]))|length > 0
+  tags:
+    - linkagg
+    - net_linkagg

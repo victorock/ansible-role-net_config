@@ -1,0 +1,10 @@
+- name: "Ensure net_ping"
+  net_ping:
+    dest: "{{ net_ping.dest }}"
+    source: "{{ net_ping.source | default(omit) }}"
+    vrf: "{{ net_ping.vrf | default(omit) }}"
+    count: "{{ net_ping.count | default(omit) }}"
+  when: net_ping.dest is defined
+  tags:
+    - ping
+    - net_ping

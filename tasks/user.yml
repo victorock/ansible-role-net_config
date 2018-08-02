@@ -1,0 +1,8 @@
+- name: "Ensure net_user"
+  net_user:
+    aggregate: "{{ net_user.aggregate }}"
+    state: "{{ net_user.state | default(omit) }}"
+  when: (net_user.aggregate|default([]))|length > 0
+  tags:
+    - net_user
+    - user

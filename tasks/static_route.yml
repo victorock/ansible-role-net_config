@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_static_route"
+  net_static_route:
+    aggregate: "{{ static_route.aggregate }}"
+    purge: "{{ net_static_route.purge | default(omit) }}"
+    state: "{{ net_static_route.state | default(omit) }}"
+  when: (net_static_route.aggregate|default([]))|length > 0
+  tags:
+    - net_static_route
+    - static_route

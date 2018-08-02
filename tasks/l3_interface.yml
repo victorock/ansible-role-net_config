@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_l3_interface"
+  net_l3_interface:
+    aggregate: "{{ net_l3_interface.aggregate }}"
+    state: "{{ net_l3_interface.state | default(omit) }}"
+    purge: "{{ net_l3_interface.purge | default(omit) }}"
+  when: (net_l3_interface.aggregate|default([]))|length > 0
+  tags:
+    - l3_interface
+    - net_l3_interface

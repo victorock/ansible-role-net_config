@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_vlan"
+  net_vlan:
+    aggregate: "{{ net_vlan.aggregate }}"
+    state: "{{ net_vlan.state | default(omit) }}"
+    purge: "{{ net_vlan.purge | default(omit) }}"
+  when: (net_vlan.aggregate|default([]))|length > 0
+  tags:
+    - net_vlan
+    - vlan

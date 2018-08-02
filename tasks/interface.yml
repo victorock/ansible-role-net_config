@@ -1,0 +1,10 @@
+---
+- name: "Ensure net_interface"
+  net_interface:
+    aggregate: "{{ net_interface.aggregate }}"
+    state: "{{ net_interface.state | default(omit) }}"
+    purge: "{{ net_interface.purge | default(omit) }}"
+  when: (net_interface.aggregate|default([]))|length > 0
+  tags:
+    - interface
+    - net_interface

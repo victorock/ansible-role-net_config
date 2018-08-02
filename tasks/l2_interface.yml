@@ -1,0 +1,9 @@
+---
+- name: "Ensure net_l2_interface"
+  net_l2_interface:
+    aggregate: "{{ net_l2_interface.aggregate }}"
+    state: "{{ net_l2_interface.state | default(omit) }}"
+  when: (net_l2_interface.aggregate|default([]))|length > 0
+  tags:
+    - l2_interface
+    - net_l2_interface

@@ -1,0 +1,15 @@
+---
+net_user: {}
+net_banner: {}
+net_interface: {}
+net_l2_interface: {}
+net_l3_interface: {}
+net_linkagg: {}
+net_lldp_interface: {}
+net_logging: {}
+net_ping: {}
+net_static_route: {}
+net_system: {}
+net_static_user: {}
+net_vlan: {}
+net_vrf: {}

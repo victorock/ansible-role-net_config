@@ -1,0 +1,12 @@
+---
+- name: "Ensure net_system"
+  net_system:
+    domain_name: "{{ net_system.domain_name | default(omit) }}"
+    domain_search: "{{ net_system.domain_search | default(omit) }}"
+    hostname: "{{ net_system.hostname | default(omit) }}"
+    name_servers: "{{ net_system.name_servers | default(omit) }}"
+    state: "{{ net_system.state | default(omit) }}"
+  when: (net_system|default({}))|length > 0
+  tags:
+    - net_system
+    - system
