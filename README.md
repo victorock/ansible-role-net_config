@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/victorock/ansible-role-network.svg?branch=master)](https://travis-ci.org/victorock/ansible-role-network)
+
 Role Name
 =========
 
