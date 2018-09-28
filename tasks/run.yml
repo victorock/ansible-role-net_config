@@ -4,10 +4,10 @@
 - import_tasks: user.yml
 - import_tasks: vlan.yml
 - import_tasks: interface.yml
-- import_tasks: lldp_interface.yml
 - import_tasks: linkagg.yml
 - import_tasks: l2_interface.yml
+- import_tasks: lldp_interface.yml
+- import_tasks: vrf.yml
 - import_tasks: l3_interface.yml
 - import_tasks: static_route.yml
-- import_tasks: vrf.yml
 - import_tasks: ping.yml
